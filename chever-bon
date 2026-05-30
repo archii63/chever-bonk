@@ -1,0 +1,111 @@
+# SmartFileWatcher
+
+A modern Python application that automatically monitors and organizes files in real time.
+
+## Features
+
+* Real-time folder monitoring
+* Automatic file categorization
+* Custom user-defined rules
+* Duplicate file detection
+* File activity logging
+* AI-ready architecture for content classification
+* Cross-platform support (Windows, Linux, macOS)
+
+## Example
+
+Input Folder:
+
+Downloads/
+├── report.pdf
+├── image.png
+├── notes.txt
+
+Output Folder:
+
+Downloads/
+├── Documents/
+│   └── report.pdf
+├── Images/
+│   └── image.png
+├── Text/
+│   └── notes.txt
+
+## Installation
+
+```bash
+pip install watchdog
+```
+
+## Usage
+
+```python
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+import os
+import shutil
+
+class SmartOrganizer(FileSystemEventHandler):
+    def on_created(self, event):
+        if event.is_directory:
+            return
+
+        file_path = event.src_path
+        extension = os.path.splitext(file_path)[1].lower()
+
+        categories = {
+            '.pdf': 'Documents',
+            '.docx': 'Documents',
+            '.txt': 'Text',
+            '.jpg': 'Images',
+            '.png': 'Images'
+        }
+
+        category = categories.get(extension)
+
+        if category:
+            destination = os.path.join(
+                os.path.dirname(file_path),
+                category
+            )
+
+            os.makedirs(destination, exist_ok=True)
+
+            shutil.move(
+                file_path,
+                os.path.join(destination,
+                os.path.basename(file_path))
+            )
+
+if __name__ == "__main__":
+    path = "./Downloads"
+
+    observer = Observer()
+    observer.schedule(
+        SmartOrganizer(),
+        path,
+        recursive=False
+    )
+
+    observer.start()
+
+    try:
+        while True:
+            pass
+    except KeyboardInterrupt:
+        observer.stop()
+
+    observer.join()
+```
+
+## Future Improvements
+
+* AI document classification
+* Cloud synchronization
+* Web dashboard
+* Telegram notifications
+* File analytics and reports
+
+## License
+
+MIT License
