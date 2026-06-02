@@ -60,7 +60,10 @@ class SmartOrganizer(FileSystemEventHandler):
             '.jpg': 'Images',
             '.png': 'Images'
         }
-
+* Duplicate file detection
+* File activity logging
+* AI-ready architecture for content classification
+* Cross-platform support (Windows, Linux, macOS)
         category = categories.get(extension)
 
         if category:
