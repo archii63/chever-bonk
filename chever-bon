@@ -17,13 +17,6 @@ A modern Python application that automatically monitors and organizes files in r
 Input Folder:
 
 Downloads/
-├── report.pdf
-├── image.png
-├── notes.txt
-
-Output Folder:
-
-Downloads/
 ├── Documents/
 │   └── report.pdf
 ├── Images/
@@ -59,7 +52,13 @@ class SmartOrganizer(FileSystemEventHandler):
             '.txt': 'Text',
             '.jpg': 'Images',
             '.png': 'Images'
-        }
+        
+Downloads/
+├── report.pdf
+├── image.png
+├── notes.txt
+
+Output Folder:
 * Duplicate file detection
 * File activity logging
 * AI-ready architecture for content classification
