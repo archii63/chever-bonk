@@ -2,33 +2,6 @@
 
 A modern Python application that automatically monitors and organizes files in real time.
 
-## Features
-
-* Real-time folder monitoring
-* Automatic file categorization
-* Custom user-defined rules
-* Duplicate file detection
-* File activity logging
-* AI-ready architecture for content classification
-* Cross-platform support (Windows, Linux, macOS)
-
-## Example
-
-Input Folder:
-
-Downloads/
-├── Documents/
-│   └── report.pdf
-├── Images/
-│   └── image.png
-├── Text/
-│   └── notes.txt
-
-## Installation
-
-```bash
-pip install watchdog
-```
 
 ## Usage
 
@@ -108,6 +81,16 @@ if __name__ == "__main__":
 * Telegram notifications
 * File analytics and reports
 
+    observer.start()
+
+    try:
+        while True:
+            pass
+    except KeyboardInterrupt:
+        observer.stop()
+
+    observer.join()
+```
 ## License
 
 MIT License
