@@ -50,7 +50,22 @@ Output Folder:
                 file_path,
                 os.path.join(destination,
                 os.path.basename(file_path))
-            )
+    
+
+* AI document classification
+* Cloud synchronization
+* Web dashboard
+* Telegram notifications
+* File analytics and reports
+
+    observer.start()
+
+    try:
+        while True:
+            pass
+    except KeyboardInterrupt:
+        observer.stop()
+        )
 
 if __name__ == "__main__":
     path = "./Downloads"
@@ -74,21 +89,6 @@ if __name__ == "__main__":
 ```
 
 ## Future Improvements
-
-* AI document classification
-* Cloud synchronization
-* Web dashboard
-* Telegram notifications
-* File analytics and reports
-
-    observer.start()
-
-    try:
-        while True:
-            pass
-    except KeyboardInterrupt:
-        observer.stop()
-
     observer.join()
 ```
 ## License
